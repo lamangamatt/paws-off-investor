@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws Off - Investor Presentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            page-break-after: always;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Slide 1: Title */
+        .title-slide {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-size: 120px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, #c8ff00 0%, #aaff00 50%, #88cc00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .tagline {
+            font-size: 32px;
+            font-weight: 300;
+            color: #888;
+            margin-bottom: 60px;
+        }
+        
+        .raise-info {
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .raise-box {
+            text-align: center;
+        }
+        
+        .raise-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c8ff00;
+        }
+        
+        .raise-label {
+            font-size: 16px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* General slide styles */
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+        
+        h2 {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #c8ff00;
+        }
+        
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        p {
+            font-size: 22px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: #c8ff00;
+            font-weight: 600;
+        }
+        
+        /* Problem slide */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .problem-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid #333;
+        }
+        
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .problem-card p {
+            font-size: 18px;
+            color: #999;
+        }
+        
+        /* Solution slide */
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            font-size: 24px;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #c8ff00, #88cc00);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .product-image {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 20px;
+        }
+        
+        /* Title product image */
+        .title-product {
+            margin-top: 40px;
+        }
+        
+        .title-product img {
+            max-height: 300px;
+            filter: drop-shadow(0 20px 40px rgba(200, 255, 0, 0.3));
+        }
+        
+        /* Product gallery */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-gallery img {
+            width: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+        
+        .detail-shot {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-shot img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 15px;
+        }
+        
+        /* Market slide */
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c8ff00;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Competitive advantage */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .advantage-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid #333;
+        }
+        
+        .advantage-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #c8ff00;
+        }
+        
+        .advantage-card p {
+            font-size: 18px;
+            color: #999;
+        }
+        
+        /* Unit Economics */
+        .economics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .econ-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .econ-card.highlight-card {
+            border: 2px solid #c8ff00;
+            background: linear-gradient(135deg, #1a2e1a 0%, #162e16 100%);
+        }
+        
+        .econ-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #c8ff00;
+        }
+        
+        .econ-label {
+            font-size: 18px;
+            color: #888;
+            margin-top: 10px;
+        }
+        
+        /* Pro Forma Table */
+        .proforma-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            font-size: 20px;
+        }
+        
+        .proforma-table th {
+            background: linear-gradient(135deg, #c8ff00, #88cc00);
+            color: #000;
+            padding: 20px 30px;
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .proforma-table th:first-child {
+            text-align: left;
+            border-radius: 15px 0 0 0;
+        }
+        
+        .proforma-table th:last-child {
+            border-radius: 0 15px 0 0;
+        }
+        
+        .proforma-table td {
+            padding: 25px 30px;
+            text-align: right;
+            border-bottom: 1px solid #333;
+            background: #111;
+        }
+        
+        .proforma-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: #888;
+        }
+        
+        .proforma-table tr:last-child td:first-child {
+            border-radius: 0 0 0 15px;
+        }
+        
+        .proforma-table tr:last-child td:last-child {
+            border-radius: 0 0 15px 0;
+        }
+        
+        .proforma-table .total-row td {
+            background: linear-gradient(135deg, #1a2e1a 0%, #162e16 100%);
+            font-weight: 700;
+            color: #c8ff00;
+            border-bottom: none;
+        }
+        
+        /* Regulatory */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c8ff00, #88cc00);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .timeline-dot {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #c8ff00, #88cc00);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-label {
+            font-size: 16px;
+            color: #c8ff00;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-desc {
+            font-size: 14px;
+            color: #888;
+            max-width: 150px;
+            margin: 0 auto;
+        }
+        
+        /* Use of Funds */
+        .funds-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .fund-item {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .fund-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: #c8ff00;
+            min-width: 100px;
+        }
+        
+        .fund-desc h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .fund-desc p {
+            font-size: 16px;
+            color: #888;
+            margin: 0;
+        }
+        
+        /* Ask slide */
+        .ask-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .ask-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .ask-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid #333;
+        }
+        
+        .ask-box.primary {
+            border: 2px solid #c8ff00;
+            background: linear-gradient(135deg, #1a2e1a 0%, #162e16 100%);
+        }
+        
+        .ask-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: #c8ff00;
+            margin-bottom: 10px;
+        }
+        
+        .ask-label {
+            font-size: 16px;
+            color: #888;
+        }
+        
+        .contact-info {
+            margin-top: 60px;
+            font-size: 24px;
+            color: #888;
+        }
+        
+        .contact-info span {
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        /* Print styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide">
+        <div class="logo-text">PAWS OFF</div>
+        <div class="tagline">Multi-Sensory Bear Defense System</div>
+        <p style="font-size: 24px; color: #666; margin-bottom: 60px;">
+            The world's first bear spray with integrated alarm & strobe technology
+        </p>
+        <div class="title-product">
+            <img src="IMG_0531.jpeg" alt="Paws Off Bear Spray">
+        </div>
+        <div class="raise-info">
+            <div class="raise-box">
+                <div class="raise-amount">$150K</div>
+                <div class="raise-label">Raising</div>
+            </div>
+            <div class="raise-box">
+                <div class="raise-amount">$1.5M</div>
+                <div class="raise-label">Valuation</div>
+            </div>
+            <div class="raise-box">
+                <div class="raise-amount">10%</div>
+                <div class="raise-label">Equity</div>
+            </div>
+        </div>
+        <div class="slide-number">1</div>
+    </div>
+
+    <!-- Slide 2: Problem -->
+    <div class="slide">
+        <h1>The Problem</h1>
+        <p style="font-size: 28px; max-width: 900px;">
+            Traditional bear spray has one chance to work. If it fails, you have no backup.
+        </p>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">🐻</div>
+                <h3>40+ Fatal Attacks/Decade</h3>
+                <p>Bear attacks are increasing as human-wildlife overlap grows with outdoor recreation.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">💨</div>
+                <h3>Single Point of Failure</h3>
+                <p>Wind, distance, or panic can cause spray to miss. Current products offer no secondary deterrent.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">📈</div>
+                <h3>Booming Outdoor Market</h3>
+                <p>65M Americans go hiking annually. Bear spray market growing 8%+ YoY as outdoor rec expands.</p>
+            </div>
+        </div>
+        <div class="slide-number">2</div>
+    </div>
+
+    <!-- Slide 3: Solution -->
+    <div class="slide">
+        <h1>The Solution</h1>
+        <div class="solution-content">
+            <div>
+                <p style="font-size: 28px; margin-bottom: 40px;">
+                    <span class="highlight">Paws Off</span> is the first bear deterrent that attacks <em>all three</em> of a bear's senses simultaneously.
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon">🌶️</div>
+                        <div>
+                            <strong>2% Capsaicin Spray</strong><br>
+                            <span style="color: #888; font-size: 18px;">40ft × 8ft expanding fog pattern, 7+ second discharge</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">🔊</div>
+                        <div>
+                            <strong>136 dB Audible Siren</strong><br>
+                            <span style="color: #888; font-size: 18px;">Louder than a jet engine at 100ft — startles & confuses</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">💡</div>
+                        <div>
+                            <strong>Disorienting Strobe Light</strong><br>
+                            <span style="color: #888; font-size: 18px;">High-intensity flash disrupts predator focus</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-image">
+                <img src="IMG_0531.jpeg" alt="Paws Off Bear Spray" style="margin-bottom: 20px;">
+                <img src="IMG_0530.jpeg" alt="Paws Off Detail - Alarm Feature" style="max-height: 200px;">
+            </div>
+        </div>
+        <div class="slide-number">3</div>
+    </div>
+
+    <!-- Slide 4: Market Opportunity -->
+    <div class="slide">
+        <h1>Market Opportunity</h1>
+        <div class="market-stats">
+            <div class="stat-card">
+                <div class="stat-number">$85M</div>
+                <div class="stat-label">US Bear Spray Market</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8%+</div>
+                <div class="stat-label">Annual Growth Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">65M</div>
+                <div class="stat-label">US Hikers Annually</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$52</div>
+                <div class="stat-label">Premium Price Point</div>
+            </div>
+        </div>
+        <p style="margin-top: 50px; font-size: 24px;">
+            <span class="highlight">Target Channels:</span> REI, Cabela's, Bass Pro Shops, Amazon, National Park gift shops
+        </p>
+        <p style="font-size: 24px;">
+            <span class="highlight">Key Regions:</span> Montana, Wyoming, Colorado, Alaska, Pacific Northwest, Yellowstone corridor
+        </p>
+        <div class="slide-number">4</div>
+    </div>
+
+    <!-- Slide 5: Competitive Advantage -->
+    <div class="slide">
+        <h1>Why We Win</h1>
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: start;">
+        <div class="advantage-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="advantage-card">
+                <h3>🎯 First Mover Advantage</h3>
+                <p>No competitor combines spray + alarm + strobe. Patent pending on multi-sensory delivery device.</p>
+            </div>
+            <div class="advantage-card">
+                <h3>⚡ Fast Regulatory Path</h3>
+                <p>EPA B660 "Me-Too" registration — leverages existing Counter Assault data. 6-month approval vs. 2+ years.</p>
+            </div>
+            <div class="advantage-card">
+                <h3>💰 Capital-Light Model</h3>
+                <p>Contract manufacturing for both aerosol fill and device assembly. No factory capex required.</p>
+            </div>
+            <div class="advantage-card">
+                <h3>🏷️ Premium Positioning</h3>
+                <p>Modern brand identity vs. dated competitors. Justifies $52 price point with superior protection story.</p>
+            </div>
+        </div>
+        <div class="detail-shot">
+            <img src="IMG_0533.jpeg" alt="Paws Off Device Design">
+        </div>
+        </div>
+        <div class="slide-number">5</div>
+    </div>
+
+    <!-- Slide 6: Unit Economics -->
+    <div class="slide">
+        <h1>Unit Economics</h1>
+        <div class="economics-grid">
+            <div class="econ-card">
+                <div class="econ-value">$52</div>
+                <div class="econ-label">Retail Price</div>
+            </div>
+            <div class="econ-card">
+                <div class="econ-value">$8.49</div>
+                <div class="econ-label">Total Unit Cost</div>
+            </div>
+            <div class="econ-card highlight-card">
+                <div class="econ-value">83.7%</div>
+                <div class="econ-label">Gross Margin</div>
+            </div>
+        </div>
+        <p style="margin-top: 50px; text-align: center; font-size: 20px; color: #888;">
+            Unit cost includes: housing, PCB, alarm, assembly, packaging ($3.49) + aerosol can & capsaicin fill (~$5.00)
+        </p>
+        <p style="text-align: center; font-size: 24px; margin-top: 20px;">
+            <span class="highlight">$43.51 gross profit per unit</span> at scale
+        </p>
+        <div class="slide-number">6</div>
+    </div>
+
+    <!-- Slide 7: Pro Forma -->
+    <div class="slide">
+        <h1>Pro Forma Projections</h1>
+        <table class="proforma-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>30K Units</th>
+                    <th>100K Units</th>
+                    <th>300K Units</th>
+                    <th>1M Units</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Revenue</td>
+                    <td>$1,560,000</td>
+                    <td>$5,200,000</td>
+                    <td>$15,600,000</td>
+                    <td>$52,000,000</td>
+                </tr>
+                <tr>
+                    <td>COGS</td>
+                    <td>$254,700</td>
+                    <td>$849,000</td>
+                    <td>$2,547,000</td>
+                    <td>$8,490,000</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Gross Profit</td>
+                    <td>$1,305,300</td>
+                    <td>$4,351,000</td>
+                    <td>$13,053,000</td>
+                    <td>$43,510,000</td>
+                </tr>
+                <tr>
+                    <td>Gross Margin</td>
+                    <td>83.7%</td>
+                    <td>83.7%</td>
+                    <td>83.7%</td>
+                    <td>83.7%</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 40px; text-align: center; font-size: 18px; color: #888;">
+            Projections assume $52 retail price and $8.49 fully-loaded unit cost. Does not include SG&A, marketing, or distribution costs.
+        </p>
+        <div class="slide-number">7</div>
+    </div>
+
+    <!-- Slide 8: Regulatory Timeline -->
+    <div class="slide">
+        <h1>Go-to-Market Timeline</h1>
+        <p style="font-size: 24px;">EPA B660 "Me-Too" pathway enables <span class="highlight">6-month federal approval</span> by leveraging existing Counter Assault registration data.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <div class="timeline-label">Q2 2026</div>
+                <div class="timeline-desc">Finalize formulation & submit EPA application</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <div class="timeline-label">Q3 2026</div>
+                <div class="timeline-desc">EPA review & prototype testing</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <div class="timeline-label">Q4 2026</div>
+                <div class="timeline-desc">Federal approval & state registrations</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <div class="timeline-label">Q1 2027</div>
+                <div class="timeline-desc">First production run (5K units)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">5</div>
+                <div class="timeline-label">Q2 2027</div>
+                <div class="timeline-desc">Retail launch & scale</div>
+            </div>
+        </div>
+        <div class="slide-number">8</div>
+    </div>
+
+    <!-- Slide 9: Use of Funds -->
+    <div class="slide">
+        <h1>Use of Funds</h1>
+        <div class="funds-grid">
+            <div class="fund-item">
+                <div class="fund-amount">$52K</div>
+                <div class="fund-desc">
+                    <h4>Regulatory & EPA Registration</h4>
+                    <p>ACTA consulting, PRIA fees, product chemistry testing, state registrations</p>
+                </div>
+            </div>
+            <div class="fund-item">
+                <div class="fund-amount">$36K</div>
+                <div class="fund-desc">
+                    <h4>MIDS Retainer</h4>
+                    <p>12-month product development and manufacturing coordination</p>
+                </div>
+            </div>
+            <div class="fund-item">
+                <div class="fund-amount">$22K</div>
+                <div class="fund-desc">
+                    <h4>Tooling & Prototypes</h4>
+                    <p>Housing molds (2 sets), pre-tooling samples, manufacturing setup</p>
+                </div>
+            </div>
+            <div class="fund-item">
+                <div class="fund-amount">$30K</div>
+                <div class="fund-desc">
+                    <h4>First Production Run</h4>
+                    <p>5,000 units initial inventory for retail launch</p>
+                </div>
+            </div>
+            <div class="fund-item">
+                <div class="fund-amount">$9K</div>
+                <div class="fund-desc">
+                    <h4>Legal & IP</h4>
+                    <p>Utility patent, trademark registration, compliance review</p>
+                </div>
+            </div>
+            <div class="fund-item">
+                <div class="fund-amount">$1K</div>
+                <div class="fund-desc">
+                    <h4>Web & Digital</h4>
+                    <p>Website, domain, hosting, e-commerce setup</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">9</div>
+    </div>
+
+    <!-- Slide 10: The Ask -->
+    <div class="slide">
+        <div class="ask-content">
+            <h1>The Ask</h1>
+            <p style="font-size: 28px;">
+                We're raising <span class="highlight">$150,000</span> to bring Paws Off to market
+            </p>
+            <div class="ask-boxes">
+                <div class="ask-box">
+                    <div class="ask-value">$150K</div>
+                    <div class="ask-label">Investment</div>
+                </div>
+                <div class="ask-box primary">
+                    <div class="ask-value">$1.5M</div>
+                    <div class="ask-label">Pre-Money Valuation</div>
+                </div>
+                <div class="ask-box">
+                    <div class="ask-value">10%</div>
+                    <div class="ask-label">Equity</div>
+                </div>
+            </div>
+            <p style="font-size: 24px; margin-top: 40px;">
+                <span class="highlight">Milestone:</span> First retail units shipping Q2 2027
+            </p>
+            <p style="font-size: 24px;">
+                <span class="highlight">Target:</span> 30,000 units Year 1 → $1.3M gross profit
+            </p>
+            <div class="title-product" style="margin: 40px 0;">
+                <img src="IMG_0530.jpeg" alt="Paws Off Detail" style="max-height: 200px;">
+            </div>
+            <div class="contact-info">
+                <p>Ready to discuss? <span>matt@victig.com</span></p>
+            </div>
+        </div>
+        <div class="slide-number">10</div>
+    </div>
+
+</body>
+</html>
